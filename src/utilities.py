@@ -34,7 +34,7 @@ def read_flights_df():
     return pd.read_csv(test_flights_path)
 
 def airport_waypoint(flight, airport, ordinal, speed):
-    return [flight["FlightHistoryId"], ordinal, airport.latitude_degrees, airport.longitude_degrees, 18000, speed]
+    return [flight["FlightHistoryId"], ordinal, airport.latitude_degrees, airport.longitude_degrees, 17000, speed]
  
 def direct_route_waypoints(flight, airport, cruise=38000, descend_distance=150, speed=500):
     flight_loc = (flight["CurrentLatitude"], flight["CurrentLongitude"])
