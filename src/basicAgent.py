@@ -7,12 +7,14 @@ import utilities as u
 def make_sample_submission():
     airports = u.read_airports()
     test_flights = u.read_flights_df()
+    no_fly_zones = u.read_no_fly_zones()
     waypoints = []
     cruise = 38000
     descend_distance = 150
     speed = 450
     waypoints = list(chain.from_iterable(
-        u.direct_route_waypoints(
+        u.no_fly_avoidance_waypoints(
+            no_fly_zones,
             row,
             airports[row["ArrivalAirport"]],
             cruise=cruise,
